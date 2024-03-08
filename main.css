@@ -82,3 +82,9 @@ button:hover {
     justify-content: space-evenly;
     align-items: center;
 }
+
+@media (max-width: 600px) {
+    .row {
+        flex-direction: column;
+    }
+}

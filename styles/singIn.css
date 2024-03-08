@@ -2,7 +2,7 @@
     background-color: #D9D9D9;
     padding: 2rem;
     border-radius: 1rem;
-    width: 26rem;
+    max-width: 26rem;
 }
 
 .sign-in-title {
