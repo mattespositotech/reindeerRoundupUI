@@ -11,6 +11,11 @@ button {
     border-radius: 0.5rem;
     font-size: 1.2rem;
     padding: 1rem 2rem;
+    box-shadow: 0.1rem 0.1rem 0.5rem rgba(0,0,0,0.2);
+}
+
+button:hover {
+    opacity: 0.9;
 }
 
 .bg-gn {
@@ -19,55 +24,6 @@ button {
 
 .bg-rd {
     background-color: #E1283A;
-}
-
-.row {
-    display: flex;
-    justify-content: space-evenly;
-    align-items: center;
-}
-
-.intro-text-block {
-    width: 30%;
-}
-
-.intro-text-block h4,
-.intro-text-block h2,
-.intro-text-block p {
-    margin: 0.75rem;
-}
-
-.intro-text-block button {
-    margin-top: 1.5rem;
-    transform: translateX(100%);
-}
-
-.feature {
-    display: flex;
-}
-
-.feature-text-box {
-    margin-left: 1rem;
-    margin-top: 0.5rem;
-}
-
-.feature-text-box > * {
-    margin: 0;
-}
-
-.feature {
-    padding: 1rem;
-}
-
-.circle-bg {
-    height: 50px;
-    width: 50px;
-    border-radius: 50%;
-}
-
-.features button {
-    margin-top: 1.5rem;
-    transform: translateX(50%);
 }
 
 .reindeer-header {
@@ -119,4 +75,10 @@ button {
 
 .nav-link:hover {
     color: #E1283A;
+}
+
+.row {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
 }

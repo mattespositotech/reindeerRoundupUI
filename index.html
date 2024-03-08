@@ -3,7 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="main.css">
+    <link rel="stylesheet" href="styles/index.css">
     <link rel="icon" href="/assets/img/favicon.png" type="image/png">
     <title>Reindeer Roundup</title>
 </head>
@@ -14,10 +15,10 @@
             <h1 class="home-title">Reindeer Roundup</h1>
         </div>
         <nav class="nav-links">
-            <li><a class="nav-link" href="#">Home</a></li>
-            <li><a class="nav-link" href="#">About</a></li>
+            <li><a class="nav-link" href="index.html">Home</a></li>
+            <li><a class="nav-link" href="about.html">About</a></li>
             <li class="sign-in">
-                <a class="nav-link" href="login.html">Sign In</a>
+                <a class="nav-link" href="signIn.html">Sign In</a>
                 <img class="sign-in-icon" src="/assets/svgs/circle-user-solid.svg" alt="user">
             </li>
         </nav>
@@ -30,7 +31,7 @@
                 <h4>Family Secret Santa</h4>
                 <h2>The Easiest Name Randomizer</h2>
                 <p>Refresh your holiday traditions with our Secret Santa generator, where we keep immediate family out of the equation, making each gift a discovery of pure delight.</p>
-                <button class="bg-gn" id="get-started">Get Started</button>
+                <button class="bg-gn" onclick="getStartedBtn()">Get Started</button>
             </div>
         </div>
         <div class="row">
@@ -63,12 +64,12 @@
                         <p>Exchange Gifts</p>
                     </div>
                 </div>
-                <button class="bg-rd">How it works</button>
+                <button class="bg-rd" onclick="goToHowItWorks()">How it works</button>
             </div>
             <img src="/assets/img/santa_santa claus_winter_christmas_house_icon.png" alt="">
         </div>
     </div> 
 
-    <script src="script.js"></script>
+    <script src="index.js"></script>
 </body>
 </html>
