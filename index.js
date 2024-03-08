@@ -4,7 +4,7 @@ function getStartedBtn() {
     if (isLoggedIn) {
         window.location.href = 'addRoundup.html'
     } else {
-        window.location.href = 'signIn.html'
+        window.location.href = 'signIn.html?getStarted=true'
     }
 }
 

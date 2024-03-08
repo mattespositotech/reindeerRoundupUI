@@ -103,10 +103,12 @@ function validatePassword(password) {
     return errors;
 }
 
+// move to utils
 function displayUserError(message) {
     document.getElementById('validationMessage').innerText = message
 }
 
+// move to utils
 function clearError() {
     displayUserError("")
 }
@@ -174,13 +176,34 @@ function signInRedirect() {
     window.location.href = 'index.html'
 }
 
-function isUserSignedIn() {
+// moved to utils
+function getAllQueryParams() {
+    var queryParams = {};
+    var queryString = window.location.search.substring(1);
+    var params = queryString.split('&');
+
+    for (var i = 0; i < params.length; i++) {
+        var pair = params[i].split('=');
+        queryParams[pair[0]] = pair[1] || ''; 
+    }
+
+    return queryParams;
+}
+
+function isUserSignedIn(signedIn) {
+    if (signedIn) {
+        return true
+    }
+    // logic to check if user typed in url without param
     return false
 }
 
 function initSignInPage() {
-    if(isUserSignedIn()) {
+    let params = getAllQueryParams()
+    if(isUserSignedIn(params['signedIn'])) {
         signInRedirect()
+    } else if (params['getStarted']) {
+        createAccount()
     } else {{
         signIn()
     }}
