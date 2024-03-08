@@ -1,0 +1,50 @@
+.reindeer-header {
+    display: flex;
+    justify-content: space-around;
+    background-color: #E6D8D6;
+}
+
+.home-container {
+    display: flex;
+    align-items: center;
+}
+
+.home-title {
+    font-size: 3rem;
+    font-weight: bold; 
+    color: #258A86;
+}
+
+.home-icon {
+    height: 60px;
+    width: 60px;
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+    gap: 1.5rem;
+    align-items: center;
+}
+
+.nav-links .sign-in {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+}
+
+.sign-in-icon {
+    height: 2.5rem;
+    width: 2.5rem;
+}
+
+.nav-link {
+    text-decoration: none;
+    color: #258A86;
+    font-weight: bold; 
+    font-size: 1.5rem;
+}
+
+.nav-link:hover {
+    color: #E1283A;
+}
