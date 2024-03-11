@@ -28,8 +28,7 @@ function addAnotherParticipant() {
     const inputs = participant.querySelectorAll('.contact-item .form-input');
     inputs.forEach(input => {
         input.addEventListener('blur', () => {
-            updateParticipantsList()
-            updateSelectLists()
+            updateInputs()
         })
     })
 
@@ -39,10 +38,15 @@ function addAnotherParticipant() {
 
 function participantDeleteBtn(id) {
     const deleteBtn = document.getElementById(`p${id}`)
-    // needs to remove from blacklists too
     console.log(deleteBtn)
     deleteBtn.remove()
     parNum--
+    updateInputs()
+}
+
+function updateInputs() {
+    updateParticipantsList()
+    updateSelectLists()
 }
 
 function updateParticipantsList() {
@@ -64,11 +68,9 @@ function updateSelectLists() {
 
     selects.forEach(select => {
         const updateList = participants
-        console.log(updateList)
         const optgroup = select.querySelector('optgroup')
 
         const updateListIds = new Set(updateList.map(par => par.id));
-        console.log(updateListIds)
 
         const existingOptionIds = new Set(Array.from(select.options).map(option => option.value))
 
@@ -86,7 +88,6 @@ function updateSelectLists() {
                 const option = document.createElement('option')
                 option.value = par.id
                 option.textContent = par.name
-                console.log(option)
 
                 optgroup.appendChild(option)
                 existingOptionIds.add(par.id)
@@ -111,9 +112,7 @@ function addAnotherBlacklistItem(blacklistId) {
 
 function blacklistItemDeleteBtn(id) {
     const blacklistItemLi = document.getElementById(`bi${id}`)
-    console.log(blacklistItemLi)
     blacklistItemLi.remove()
-    blItemNum--
 }
 
 // validation on blur for inputs
