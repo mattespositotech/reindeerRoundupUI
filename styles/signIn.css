@@ -19,20 +19,6 @@
     font-weight: bold;
 }
 
-.form-input {
-    border: none;
-    border-radius: 1rem;
-    font-size: 1rem;
-    padding: 0.6rem 1rem;
-    margin: 0.5rem 0;
-    box-sizing: border-box;
-    width: 100%;
-}
-
-.form-input:focus {
-    outline: none;
-}
-
 .btn-sign-in {
     display: block;
     margin: 0.75rem auto 1.25rem;

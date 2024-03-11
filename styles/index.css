@@ -13,30 +13,9 @@
     transform: translateX(100%);
 }
 
-.feature {
-    display: flex;
-}
-
-.feature-text-box {
-    margin-left: 1rem;
-    margin-top: 0.5rem;
-}
-
-.feature-text-box > * {
-    margin: 0;
-}
-
-.feature {
-    padding: 1rem;
-}
-
-.circle-bg {
-    height: 50px;
-    width: 50px;
-    border-radius: 50%;
-}
 
 .features button {
     margin-top: 1.5rem;
     transform: translateX(50%);
+    /* try display block */
 }

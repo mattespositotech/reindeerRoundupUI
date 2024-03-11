@@ -3,11 +3,62 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="main.css">
+    <link rel="stylesheet" href="styles/addRoundup.css">
+    <link rel="icon" href="/assets/img/favicon.png" type="image/png">
     <title>Add A Roundup</title>
 </head>
 <body>
-    <div>
-        <h1>Let's Get Started</h1>
+    <div class="row">
+        <div class="roundup-container">
+            <h1>Let's Get Started</h1>
+            <div class="step-1">
+                <h4 class="step-title">Step 1 - Name This Roundup</h4>
+                <input class="form-input" type="text" id="roundup-name" name="roundup-name" placeholder="Roundup Name">
+            </div>
+            <div class="step-2">
+                <h4 class="step-title">Step 2 - Add the contact info for your participants</h4>
+                <ul class="contact-list" id="contact-list">
+                </ul>
+                <button class="bg-gn btn-add-participant" type="button" onclick="addAnotherParticipant()">Add Another Participant</button>
+            </div>
+            <div class="step-3">
+                <h4 class="step-title">Step 3 (Optional) - Add participants to blacklist</h4>
+                <p class="step-text">All participants in a blacklist will not draw each other's names. Great for large extended families and office departments!</p>
+                <ul class="blacklists">
+                    <li class="blacklist">
+                        Blacklist
+                        <ul id="bl1" class="blacklist-list">
+                            <!-- <li class="blacklist-item">
+                                <select class="form-select" name="blacklist" id="blacklist">
+                                    <optgroup label="Participants">
+                                        <option value="1">Participants</option>
+                                    </optgroup>
+                                </select>
+                                <button class="btn-delete bg-rd btn-hidden" onclick="blacklistItemDeleteBtn()">Delete</button>
+                            </li> -->
+                        </ul>
+                        <button class="bg-gn btn-add-participant" type="button" onclick="addAnotherBlacklistItem(1)">Add Another Participant</button>
+                    </li>
+                </ul>
+                <button class="bg-gn btn-add-blacklist" type="button" onclick="">Add Another Blacklist</button>
+            </div>
+            <div class="step-4">
+                <h4 class="step-title">Step 4 (Optional) - Add a date for the exchange</h4>
+                <p class="step-text">Include a date to send to your participants for the exchange</p>
+                <input class="form-input" type="date" name="roundup-date" id="roundup-date">
+                <button class="btn-delete bg-rd btn-hidden">Delete</button>
+            </div>
+            <div class="step-5">
+                <h4 class="step-title">Step 5 (Optional) - Add a message for the exchange</h4>
+                <p class="step-text">Include a message to send to your participants</p>
+                <textarea class="form-textarea" name="roundup-message" id="roundup-message" cols="50" rows="5" placeholder="Happy Holidays!"></textarea>
+            </div>
+        </div>
+        <img src="/assets/img/santa_santa claus_winter_christmas_house_icon.png" alt="">
     </div>
+    
+
+    <script src="scripts/addRoundup.js"></script>
 </body>
 </html>

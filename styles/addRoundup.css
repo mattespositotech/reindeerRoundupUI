@@ -1,0 +1,20 @@
+/* .btn-delete {
+    width: 16px;
+} */
+
+/* .roundup-container {
+    flex: 2;
+} */
+
+.contact-item, 
+.blacklist, 
+.blacklist-item {
+    list-style-type: decimal;
+}
+
+.form-input,
+.form-textarea,
+.form-select {
+    background-color: #D9D9D9;
+    width: 45%;
+}
