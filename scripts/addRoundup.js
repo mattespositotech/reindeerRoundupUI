@@ -63,29 +63,25 @@ function updateSelectLists() {
     const selects = document.querySelectorAll('.form-select');
 
     selects.forEach(select => {
-        const updateList = participants; // Assuming 'participants' is defined somewhere
+        const updateList = participants
         console.log(updateList)
         const optgroup = select.querySelector('optgroup')
 
-        // Create a set for faster lookup
         const updateListIds = new Set(updateList.map(par => par.id));
         console.log(updateListIds)
 
         const existingOptionIds = new Set(Array.from(select.options).map(option => option.value))
 
-        // Remove options not in the updateList
         for (let i = 0; i < select.options.length; i++) {
             let optId = select.options[i].value
             if (!updateListIds.has(optId)) {
-                select.removeChild(select.options[i])
-                i-- // Adjust the index since the options list has changed
+                optgroup.removeChild(select.options[i])
+                i--
                 existingOptionIds.delete(optId)
             }
         }
 
-        // Add new options from updateList
         updateList.forEach(par => {
-            // Check if the option already exists
             if (!existingOptionIds.has(par.id)) {
                 const option = document.createElement('option')
                 option.value = par.id
@@ -97,42 +93,6 @@ function updateSelectLists() {
             }
         });
     });
-}
-
-function getAllParticipants() {
-    participants = [];
-    const contactItems = document.querySelectorAll('.contact-item');
-
-    // Get all the select elements
-    const selects = document.querySelectorAll('.form-select');
-
-    selects.forEach((select) => {
-        select.querySelector('optgroup').innerHTML = ''
-    })
-
-    contactItems.forEach((item) => {
-        const id = item.id.slice(1); // remove the 'p' prefix
-        const name = document.getElementById(`participant-name-${item.id}`).value;
-        const email = document.getElementById(`participant-email-${item.id}`).value;
-
-        participants.push({ id, name, email });
-
-        // Loop over all the select elements
-        selects.forEach(select => {
-            // Get the optgroup element
-            const optgroup = select.querySelector('optgroup');
-
-            // Create a new option element
-            const option = document.createElement('option');
-            option.value = id;
-            option.textContent = name;
-
-            // Append the option to the optgroup
-            optgroup.appendChild(option);
-        });
-    });
-
-    return participants;
 }
 
 function addAnotherBlacklistItem(blacklistId) {
@@ -167,9 +127,24 @@ function blacklistItemDeleteBtn(id) {
 // validation on date, can't do past
 // max limit on message 2000 characters
 
+function initialBlacklists() {
+    const selects = document.querySelectorAll('.form-select')
+
+    selects.forEach(select => {
+        const optgroup = select.querySelector('optgroup')
+        const defaultOption = document.createElement('option')
+        defaultOption.textContent = 'Participants'
+        defaultOption.value = 0 
+        optgroup.appendChild(defaultOption)
+
+        participants.push({ id:0, name:'Participants', email:'default@gmail.com' })
+    })
+}
+
 function initRoundupPage() {
     addAnotherParticipant()
     addAnotherBlacklistItem(1)
+    initialBlacklists()
 }
 
 initRoundupPage()
