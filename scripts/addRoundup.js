@@ -63,7 +63,7 @@ function updateParticipantsList() {
     const contactItems = document.querySelectorAll('.contact-item')
 
     contactItems.forEach(item => {
-        const id = item.id.slice(1) // remove the prefix
+        const id = item.id.slice(1)
         const name = document.getElementById(`participant-name-${item.id}`).value
         const email = document.getElementById(`participant-email-${item.id}`).value
 
@@ -140,6 +140,30 @@ function blacklistDeleteBtn(blacklistId) {
     blacklistLi.remove()
 }
 
+function getAllBlacklists() {
+    let blacklists = []
+    const blacklistsUl = document.getElementById('blacklists')
+    const blacklistLis = blacklistsUl.querySelectorAll('.blacklist-list')
+
+    blacklistLis.forEach(blacklist => {
+        let setList = new Set()
+        const blacklistItems = blacklist.querySelectorAll('.blacklist-item')
+
+        blacklistItems.forEach(item => {
+            const id = item.querySelector('select').value
+            if (id !== '0') {
+                setList.add(id)
+            }
+        })
+        if (setList.size !== 0) {
+            const list = [...setList]
+            blacklists.push(list)
+        }
+    })
+
+    return blacklists
+}
+
 // validation on blur for inputs
 //    --name at least 3 chars nothing but alphabet
 //    --same email validation, need to move to utils
@@ -147,6 +171,25 @@ function blacklistDeleteBtn(blacklistId) {
 // validation on name
 // validation on date, can't do past
 // max limit on message 2000 characters
+
+function sendTheInvites() {
+    const roundupName = document.getElementById('roundup-name').value
+    const blacklists = getAllBlacklists()
+    const date = document.getElementById('roundup-date').value
+    const message = document.getElementById('roundup-message').value
+
+    const roundup = {
+        "name": roundupName,
+        "participants": participants,
+        "blacklist": blacklists,
+        "date": date,
+        "message": message,
+        "status": 0
+    }
+
+    // to send to api
+    console.log(roundup)
+}
 
 function initialBlacklists() {
     const selects = document.querySelectorAll('.form-select')
