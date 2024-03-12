@@ -25,15 +25,8 @@
             <div class="step-3">
                 <h4 class="step-title">Step 3 (Optional) - Add participants to blacklist</h4>
                 <p class="step-text">All participants in a blacklist will not draw each other's names. Great for large extended families and office departments!</p>
-                <ul class="blacklists">
-                    <li class="blacklist">
-                        Blacklist
-                        <ul id="bl1" class="blacklist-list">
-                        </ul>
-                        <button class="bg-gn btn-add-participant" type="button" onclick="addAnotherBlacklistItem(1)">Add Another Participant</button>
-                    </li>
-                </ul>
-                <button class="bg-gn btn-add-blacklist" type="button" onclick="">Add Another Blacklist</button>
+                <ul id="blacklists" class="blacklists"></ul>
+                <button class="bg-gn btn-add-blacklist" type="button" onclick="addAnotherBlacklist()">Add Another Blacklist</button>
             </div>
             <div class="step-4">
                 <h4 class="step-title">Step 4 (Optional) - Add a date for the exchange</h4>

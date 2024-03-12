@@ -14,8 +14,16 @@ const blacklistItemHTML = (id) => `
 <button class="btn-delete bg-rd btn-hidden" onclick="blacklistItemDeleteBtn(${id})">Delete</button>
 `
 
+const blacklistHTML = (id) => `
+Blacklist
+<ul id="bl${id}" class="blacklist-list"></ul>
+<button class="bg-gn btn-add-participant" type="button" onclick="addAnotherBlacklistItem(${id})">Add Another Participant</button>
+<button class="bg-rd" type="button" onclick="blacklistDeleteBtn(${id})">Delete Blacklist</button>
+`
+
 let parNum = 1
 let blItemNum = 1
+let blkLstNum = 1
 let participants = []
 
 function addAnotherParticipant() {
@@ -36,8 +44,8 @@ function addAnotherParticipant() {
     contactList.appendChild(participant)
 }
 
-function participantDeleteBtn(id) {
-    const deleteBtn = document.getElementById(`p${id}`)
+function participantDeleteBtn(participantId) {
+    const deleteBtn = document.getElementById(`p${participantId}`)
     console.log(deleteBtn)
     deleteBtn.remove()
     parNum--
@@ -97,30 +105,44 @@ function updateSelectLists() {
 }
 
 function addAnotherBlacklistItem(blacklistId) {
-
     const blacklistItem = document.createElement('li')
     blacklistItem.id = 'bi' + blItemNum
-
     blacklistItem.classList.add('blacklist-item')
     blacklistItem.innerHTML = blacklistItemHTML(blItemNum)
 
     blItemNum++
-    const blacklist = document.getElementById(`bl${blacklistId}`)
-    blacklist.appendChild(blacklistItem)
+    const blacklistUl = document.getElementById(`bl${blacklistId}`)
+    blacklistUl.appendChild(blacklistItem)
     updateSelectLists()
 }
 
-function blacklistItemDeleteBtn(id) {
-    const blacklistItemLi = document.getElementById(`bi${id}`)
+function blacklistItemDeleteBtn(blacklistItemId) {
+    const blacklistItemLi = document.getElementById(`bi${blacklistItemId}`)
     blacklistItemLi.remove()
+}
+
+function addAnotherBlacklist() {
+    const blacklist = document.createElement('li')
+    blacklist.id = 'b' + blkLstNum
+    blacklist.classList.add('blacklist')
+    blacklist.innerHTML = blacklistHTML(blkLstNum)
+
+    const blacklistUl = document.getElementById('blacklists')
+    blacklistUl.appendChild(blacklist)
+    addAnotherBlacklistItem(blkLstNum)
+
+    blkLstNum++
+    updateSelectLists()
+}
+
+function blacklistDeleteBtn(blacklistId) {
+    const blacklistLi = document.getElementById(`b${blacklistId}`)
+    blacklistLi.remove()
 }
 
 // validation on blur for inputs
 //    --name at least 3 chars nothing but alphabet
 //    --same email validation, need to move to utils
-// blur on all inputs to update participant list
-// blacklist calls that list to populate select
-// add init which generates the html for all first occurances
 
 // validation on name
 // validation on date, can't do past
@@ -142,7 +164,7 @@ function initialBlacklists() {
 
 function initRoundupPage() {
     addAnotherParticipant()
-    addAnotherBlacklistItem(1)
+    addAnotherBlacklist()
     initialBlacklists()
 }
 
